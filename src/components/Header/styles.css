@@ -1,0 +1,32 @@
+.header {
+  max-width: 100%;
+  height   : 60px;
+
+  background   : #1e3048;
+  border-bottom: 2px solid #2b2e32;
+  color        : #FFF;
+
+  display        : flex;
+  justify-content: space-around;
+  align-items    : center;
+
+  /* animation */
+  animation-name           : title-header;
+  animation-duration       : 1s;
+  animation-iteration-count: infinite;
+  animation-direction      : alternate;
+}
+
+@keyframes title-header {
+  0% {
+    color: #FFF;
+  }
+
+  50% {
+    color: #DDD;
+  }
+
+  100% {
+    color: #fbff00;
+  }
+}
