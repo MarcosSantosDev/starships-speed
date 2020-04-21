@@ -1,15 +1,13 @@
 .header {
   max-width: 100%;
-  height   : 60px;
-
-  background   : #1e3048;
-  border-bottom: 2px solid #2b2e32;
+  height   : 50px;
+  background   : #2f373df2;
   color        : #FFF;
+  margin-bottom: 10px;
 
   display        : flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items    : center;
-
   /* animation */
   animation-name           : title-header;
   animation-duration       : 1s;
@@ -29,4 +27,13 @@
   100% {
     color: #fbff00;
   }
+}
+
+.header--icon {
+  padding      : 5px;
+  width        : 40px;
+  height       : 40px;
+  border-radius: 20px;
+  margin       : 5px;
+  transform    : rotate(90deg);
 }
