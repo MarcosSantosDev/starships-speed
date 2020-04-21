@@ -15,6 +15,7 @@ export default class Starships extends Component {
       animation: '',
       pageCurrent: 1
     }
+    
     this.calculateStops = this.calculateStops.bind(this);
     this.getStarships = this.getStarships.bind(this);
     this.nextPage = this.nextPage.bind(this);
