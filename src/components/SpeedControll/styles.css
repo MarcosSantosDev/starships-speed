@@ -1,11 +1,14 @@
 .speedControll {
   width     : 100%;
   text-align: center;
-  padding: 0 5px;
+  padding   : 0 5px;
+  color     : #FFF;
 }
 
-.speedControll {
-  color: #FFF;
+.speedControll__panel {
+  max-width: 100%;
+  width: 400px;
+  margin: 0 auto;
 }
 
 .speedControll__actions {
@@ -27,20 +30,20 @@
 }
 
 .speedControll__actions .button {
-  max-width      : 100%;
-  width          : 400px;
-  height         : 40px;
-  background     : #2f373df2;
-  border         : 0;
-  border-radius  : 5px;
-  color          : #FFF;
-  font-weight    : 700;
-  margin-top     : 16px;
+  max-width    : 100%;
+  width        : 400px;
+  height       : 40px;
+  background   : #2f373df2;
+  border       : 0;
+  border-radius: 5px;
+  color        : #FFF;
+  font-weight  : 700;
+  margin-top   : 16px;
 
-  display        : inline-block;
-  text-align     : center;
-  font-size      : 18px;
-  transition     : 0.2s;
+  display   : inline-block;
+  text-align: center;
+  font-size : 18px;
+  transition: 0.2s;
 }
 
 .speedControll__actions .button:hover {

@@ -1,10 +1,4 @@
 .starships {
-  height             : calc(100vh - 50px);
-  background         : url('/images/bg_starships.jpg');
-  background-position: center;
-  background-repeat  : no-repeat;
-  background-size    : cover;
-
   display        : flex;
   justify-content: center;
 }
@@ -30,25 +24,10 @@
   background   : #FFF;
   border-radius: 20px;
   padding      : 5px 15px;
+  width: 100%;
 
   display        : flex;
   justify-content: space-between;
-}
-
-.starships__list--item-animation {
-  animation-name     : mega-ligth-animation;
-  animation-duration : 2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes mega-ligth-animation {
-  0% {
-    width: calc(100% - 25%);
-  }
-
-  100% {
-    width: calc(100% - 0%);
-  }
 }
 
 .starships__list--icon {
@@ -60,7 +39,6 @@
   transform    : rotate(90deg);
 }
 
-
 .starships__list--item-name {
   font-size  : 15px;
   font-weight: 600;
@@ -68,4 +46,31 @@
 
 .starships__list--mega-ligth {
   color: #bf9a56;
+  margin-left: 10px;
+}
+
+.starships__list .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.starships__list .actions button {
+  padding: 10px;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  background: #2f373df2;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.starships__list .actions button:hover {
+  opacity: 0.5;
+}
+
+.starships__list .actions button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
