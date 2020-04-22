@@ -14,8 +14,8 @@ export default class Starships extends Component {
       starshipsInfo: {},
       pageCurrent: 1
     }
-    
-    this.calculateStops = this.calculateStops.bind(this);
+
+    this.calculateStops = this.calculateStops.bind(this); 
     this.getStarships = this.getStarships.bind(this);
     this.nextPage = this.nextPage.bind(this);
     this.prevPage = this.prevPage.bind(this);
@@ -35,13 +35,40 @@ export default class Starships extends Component {
     });
   }
 
-  calculateStops(MGLT) {
-    const megaLigths = Number(MGLT)
+  calculateStops(starship) {
     const megaLigthsProps = Number(this.props.megaLigths);
-
+    const megaLigths = Number(starship.MGLT)
+    const consumables = starship.consumables;
+    
     if (!isNaN(megaLigths)) {
       if (this.props.calculate && megaLigthsProps > 0) {
-        return parseInt(megaLigthsProps / megaLigths);
+        const [valueCalendar, propCalendar] = consumables.split(" ");
+
+        let hoursConsumables;
+    
+        switch (propCalendar) {
+          case "day":
+          case "days":
+            hoursConsumables = valueCalendar * 24;
+            break;
+          case "week":
+          case "weeks":
+            hoursConsumables = valueCalendar * 168;
+          break;
+          case "month":
+          case "months":
+            hoursConsumables = valueCalendar * 720;
+          break;
+          case "year":
+          case "years":
+            hoursConsumables = valueCalendar * 8640;
+          break;
+          default:
+            hoursConsumables = 0;
+          break;
+        }
+
+        return parseInt((megaLigthsProps / megaLigths) / hoursConsumables);
       }
     }
 
@@ -66,7 +93,7 @@ export default class Starships extends Component {
 
   render() {
     const { starships, starshipsInfo, pageCurrent } = this.state;
-    const {calculate, megaLigths} = this.props;
+    const { calculate, megaLigths } = this.props;
 
     const animation = (calculate && megaLigths > 0) ? 'starships__list--item-animation' : '';
     const hidden = starships.length > 0 ? 'hidden' : '';
@@ -74,17 +101,17 @@ export default class Starships extends Component {
     return (
       <div className="starships">
         <section className="starships__list">
-          
+
           <div className="starships__title">
             <h3>Naves estelares</h3>
           </div>
-          
+
           {
             starships.map((starship, index) => (
               <div id={index} key={index} className="starships__list--items">
                 <div className={`${animation} starships__list--item`} >
                   <span className="starships__list--item-name" >{starship.name} </span>
-                  <span className="starships__list--mega-ligth" > {this.calculateStops(starship.MGLT)} Paradas</span>
+                  <span className="starships__list--mega-ligth" > {this.calculateStops(starship)} Paradas</span>
                 </div>
                 <div className="starships__list--icon">
                   <GiStarfighter fontSize={25} color="#DDD" />
@@ -95,7 +122,7 @@ export default class Starships extends Component {
 
           <div className={`${hidden} starships__loading`}>
             <div className="starships__loading--icon">
-              <GiSpaceship fontSize={25}/>
+              <GiSpaceship fontSize={25} />
             </div>
             <span>Carregando naves..</span>
           </div>
