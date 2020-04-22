@@ -12,7 +12,6 @@ export default class Starships extends Component {
     this.state = {
       starships: [],
       starshipsInfo: {},
-      animation: '',
       pageCurrent: 1
     }
     
@@ -66,7 +65,10 @@ export default class Starships extends Component {
   }
 
   render() {
-    const { starships, animation, starshipsInfo, pageCurrent } = this.state;
+    const { starships, starshipsInfo, pageCurrent } = this.state;
+    const {calculate, megaLigths} = this.props;
+
+    const animation = (calculate && megaLigths > 0) ? 'starships__list--item-animation' : '';
 
     return (
       <div className="starships">
