@@ -1,36 +1,101 @@
 .starships {
+  /* flex area */
   display        : flex;
   justify-content: center;
 }
 
 .starships__list {
   max-width: 100%;
-  width    : 400px;
-  margin   : 0 auto;
+  width    : 80%;
+  height   : 50px;
+
+  /* flex area */
+  display        : flex;
+  justify-content: space-around;
+  flex-wrap      : wrap;
 }
 
-.starships__list--items {
-  display        : flex;
-  justify-content: flex-start;
-  align-items    : center;
-
-  @media(min-width: 400px) {
-    min-width: 350px;
+@media (max-width: 600px) {
+  .starships__list {
+    width: 100%;
   }
 }
 
+.starships__title {
+  width    : 100%;
+  height   : 50px;
+  font-size: 32px;
+  color    : #DDD;
+
+  /* flex area */
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.starships__loading {
+  width : 100%;
+  height: 100px;
+  color : #DDD;
+
+  /* flex area */
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+}
+
+.starships__loading--icon {
+  width : 50px;
+  height: 50px;
+
+  /* animation area */
+  animation-name           : starships-loading;
+  animation-duration       : 2s;
+  animation-iteration-count: infinite;
+  animation-direction      : alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes starships-loading {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+    color    : transparent;
+  }
+}
+
+.starships__list--items {
+  max-width: 100%;
+
+  /* flex area */
+  display        : flex;
+  justify-content: flex-start;
+  align-items    : center;
+}
+
 .starships__list--item {
-  color: #2f373df2;
-  background: #FFF;
+  color        : #2f373df2;
+  background   : #FFF;
   border-radius: 6px;
-  padding: 10px;
-  width: 100%;
-  height: 35px;
-  display: flex;
+  padding      : 10px 5px;
+  width        : 360px;
+  min-height   : 35px;
+
+  /* flex area */
+  display        : flex;
   justify-content: space-between;
 }
 
+
 .starships__list--item-animation {
+  /* animation area */
   animation-name     : mega-ligth-animation;
   animation-duration : 2s;
   animation-fill-mode: forwards;
@@ -38,11 +103,11 @@
 
 @keyframes mega-ligth-animation {
   0% {
-    width: calc(100% - 40%);
+    width: calc(360px - 40px);
   }
 
   100% {
-    width: calc(100% - 0%);
+    width: calc(360px - 0px);
   }
 }
 
@@ -62,31 +127,33 @@
 
 .starships__list--mega-ligth {
   color: #bf9a56;
-  margin-left: 10px;
 }
 
-.starships__list .actions {
-  display: flex;
+.starships__list .paginate,
+.paginate__actions {
+  width  : 100%;
+  padding: 5px;
+  /* flex area */
+  display        : flex;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 
-.starships__list .actions button {
-  padding: 10px;
-  color: #FFF;
-  font-size: 16px;
-  font-weight: bold;
-  background: #2f373df2;
-  border: 0;
+.starships__list .paginate__actions button {
+  padding      : 10px;
+  color        : #FFF;
+  font-size    : 16px;
+  font-weight  : bold;
+  background   : #2f373df2;
+  border       : 0;
   border-radius: 8px;
-  cursor: pointer;
+  cursor       : pointer;
 }
 
-.starships__list .actions button:hover {
+.starships__list .paginate__actions button:hover {
   opacity: 0.5;
 }
 
-.starships__list .actions button[disabled] {
-  cursor: not-allowed;
+.starships__list .paginate__actions button[disabled] {
+  cursor : not-allowed;
   opacity: 0.5;
 }

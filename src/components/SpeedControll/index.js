@@ -7,7 +7,7 @@ class SpeedControll extends Component {
     super(props);
 
     this.state = {
-      megaLigths: 0,
+      megaLigths: '',
       calculate: false
     }
 
@@ -16,7 +16,8 @@ class SpeedControll extends Component {
   }
 
   handleChangeMegaLigths(event) {
-    this.setState({ megaLigths: event.target.value, calculate: false });
+    const value = event.target.value.replace(/\+|-/ig, '');
+    this.setState({ megaLigths: value, calculate: false });
   }
 
   handleChangeCalculate(event) {
@@ -29,12 +30,24 @@ class SpeedControll extends Component {
     return (
       <div className="speedControll">
         <div className="speedControll__panel">
-          <h3>Calcule o total de paradas das naves em uma determinada distancia</h3>
+          <h2>Calcule o total de paradas das naves estelares</h2>
           <div className="speedControll__actions">
-            <input type="text"  placeholder="Adicione a distância" onChange={this.handleChangeMegaLigths} />
-            <button className="button" type="button" onClick={this.handleChangeCalculate} >Calcular paradas</button>
+            <input
+              id="megaLigth"
+              name="megaLigth"
+              type="number"
+              min="0"
+              placeholder="Informe a distância em mega ligths"
+              value={megaLigths}
+              onChange={this.handleChangeMegaLigths}
+            />
+            <button
+              className="button"
+              type="button"
+              onClick={this.handleChangeCalculate}
+            >Calcular paradas</button>
           </div>
-          </div>
+        </div>
         <Starships megaLigths={megaLigths} calculate={calculate} />
       </div>
     );

@@ -1,5 +1,6 @@
 .speedControll {
   width     : 100%;
+  height: calc(100vh - 50px);
   text-align: center;
   padding   : 0 5px;
   color     : #FFF;
@@ -12,16 +13,18 @@
 }
 
 .speedControll__actions {
+  flex-direction : column;
+  margin         : 10px auto;
+  
+  /* flex area */
   display        : flex;
   justify-content: center;
   align-items    : center;
-  flex-direction : column;
-  margin         : 10px auto;
 }
 
 .speedControll__actions input {
   max-width    : 100%;
-  width        : 400px;
+  width        : 100%;
   height       : 40px;
   color        : #333;
   border       : 1px solid #dcdce6;
@@ -39,7 +42,8 @@
   color        : #FFF;
   font-weight  : 700;
   margin-top   : 16px;
-
+  
+  /* flex area */
   display   : inline-block;
   text-align: center;
   font-size : 18px;

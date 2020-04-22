@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GiStarfighter } from 'react-icons/gi'
+import { GiStarfighter, GiSpaceship } from 'react-icons/gi'
 
 import api from '../../services/api';
 
@@ -69,10 +69,16 @@ export default class Starships extends Component {
     const {calculate, megaLigths} = this.props;
 
     const animation = (calculate && megaLigths > 0) ? 'starships__list--item-animation' : '';
+    const hidden = starships.length > 0 ? 'hidden' : '';
 
     return (
       <div className="starships">
         <section className="starships__list">
+          
+          <div className="starships__title">
+            <h3>Naves estelares</h3>
+          </div>
+          
           {
             starships.map((starship, index) => (
               <div id={index} key={index} className="starships__list--items">
@@ -86,9 +92,19 @@ export default class Starships extends Component {
               </div>
             ))
           }
-          <div className="actions">
-            <button disabled={pageCurrent === 1} onClick={this.prevPage} type="button" >Anterior</button>
-            <button disabled={starshipsInfo.next === null} onClick={this.nextPage} type="button" >Próximo</button>
+
+          <div className={`${hidden} starships__loading`}>
+            <div className="starships__loading--icon">
+              <GiSpaceship fontSize={25}/>
+            </div>
+            <span>Carregando naves..</span>
+          </div>
+
+          <div className="paginate">
+            <div className="paginate__actions">
+              <button disabled={pageCurrent === 1} onClick={this.prevPage} type="button" >Anterior</button>
+              <button disabled={starshipsInfo.next === null || starships.length === 0} onClick={this.nextPage} type="button" >Próximo</button>
+            </div>
           </div>
         </section>
       </div>

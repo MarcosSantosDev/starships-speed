@@ -2,17 +2,29 @@
   max-width: 100%;
   height   : 50px;
   background   : #2f373df2;
-  color        : #FFF;
   margin-bottom: 10px;
-
+  
+  /* flex area */
   display        : flex;
   justify-content: center;
   align-items    : center;
-  /* animation */
+}
+
+.header__container {
+  /* flex area */
+  display: flex;
+  align-items: center;
+  color        : #FFF;
+  
+  /* animation area */
   animation-name           : title-header;
   animation-duration       : 1s;
   animation-iteration-count: infinite;
   animation-direction      : alternate;
+}
+
+.header__container h3 {
+  min-width: 200px
 }
 
 @keyframes title-header {
@@ -34,6 +46,6 @@
   width        : 40px;
   height       : 40px;
   border-radius: 20px;
-  margin       : 5px;
+  margin       : 0 auto;
   transform    : rotate(90deg);
 }
