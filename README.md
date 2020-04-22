@@ -1,4 +1,4 @@
-#starships-speed
+# starships-speed
 
 ## Getting Started
 
@@ -7,10 +7,15 @@ Clone the project:
 ```
 git clone https://github.com/MarcosSantosDev/starships-speed.git
 ```
+## In the project directory install dependences
+
+you can run of the comand:
+
+### `npm i or npm install`
 
 ## Available Scripts
 
-In the project directory, you can run:
+Starting project, you can run of the comand:
 
 ### `npm start`
 
